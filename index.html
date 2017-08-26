@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="keywords" lang="pl" content="gra tekstowa">
+    <meta name="description" lang="pl" content="tekstowa gra podróżnicza i geograficzna">
+    <meta name="author" content="Nilmerg Omino">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tt-game.css">
+    <title>js - ćwiczenia na przykładach</title>
+</head>
+<body>
+    <header class="header">
+        <h1><span class="header__text_highlighted">t</span>ravel <span class="header__text_highlighted">t</span>ext <span class="header__text_highlighted">game</span></h1>
+    </header>
+    <nav class="nav">
+        <a class="nav__link" href="../">Strona główna</a>
+    </nav>
+    <main>
+        <div class="main__game-text-panel">
+            <p id="travel-description" class="main__travel-description"></p>
+            <div class="main__travel-status">
+                <p>ruchy: <span id="travel-movements" class="main__travel-status-values">0</span></p>
+                <p>obecne położenie: <span id="travel-current-position" class="main__travel-status-values"></span></p>
+                <p>cel podróży: <span id="travel-destination" class="main__travel-status-values"></span></p>
+            </div>
+        </div>
+        <div class="main__game-cl-container">
+            <input type="text" class="main__input-cl" id="command-line" placeholder="nazwa państwa/ akwenu">
+        </div>
+        <div class="world-map" id="world-map">
+            <div class="point-on-map"></div>
+        </div>
+    </main>
+    <script src="places.js"></script>
+    <script src="tt-game.js"></script>
+</body>
+</html>
