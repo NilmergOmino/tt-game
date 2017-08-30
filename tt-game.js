@@ -13,12 +13,15 @@ window.addEventListener('DOMContentLoaded', function(){
 
     var setMapView = function(mapCode){
         if(mapCode.length>0){
+            tMapWidth = tMap.offsetWidth-2,
+            tMapHeight = tMap.offsetHeight-2;
             var mapCode = mapCode.split("_"),
                 scale = mapCode[2],
-                xCoord = 200-(mapCode[0]*scale),
-                yCoord = 125-((1000-mapCode[1])*scale),
-                mapSizeX = 2000*scale,
-                mapSizeY = 1000*scale;
+                scale = scale*0.7,
+                xCoord = 0.5*tMapWidth -(mapCode[0]*scale),
+                yCoord = 0.5*tMapHeight-((3653-mapCode[1])*scale),
+                mapSizeX = 5910*scale,
+                mapSizeY = 3653*scale;
             tMap.style.backgroundSize = mapSizeX+'px '+mapSizeY+'px';
             tMap.style.backgroundPosition = xCoord+'px '+yCoord+'px';
         }
@@ -36,13 +39,14 @@ window.addEventListener('DOMContentLoaded', function(){
         setRandomCountries();
         tStartPosition = countries[randomStartCountry][0],
         tDestinationValue = countries[randomEndCountry][0],
-        tDescriptionValue = "Witaj przyjacielu, musisz dostać się do pewnego państwa przekraczając jak najmniejszą ilość granic. Zaczynajmy!<br><br>Twoje obecne położenie: "+tStartPosition+"<br>Twój cel podróży: "+tDestinationValue,
+        tDescriptionValue = "Witaj przyjacielu, musisz dostać się do pewnego państwa przekraczając jak najmniejszą liczbę granic. Zaczynajmy!<br><br>Twoje obecne położenie: "+tStartPosition+"<br>Twój cel podróży: "+tDestinationValue,
         tMove = 0,
         tCurrentPositionValue = tStartPosition,
         tAllVisitedPlaces = tStartPosition+" -> ";
         tDestination.innerHTML = tDestinationValue;
         setGameValues(tMove, tCurrentPositionValue, tDescriptionValue);
-        setMapView(countries[randomStartCountry][1]);
+        setMapView("2420.8_2124.6_2");
+        //setMapView(countries[randomStartCountry][1]);
     }
 
     var setGameValues = function(tMove, tCurrentPositionValue, tDescriptionValue){
